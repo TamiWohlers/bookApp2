@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var app = express();
 //middleware
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/Public'));
 app.use(cors());
 
 //port
