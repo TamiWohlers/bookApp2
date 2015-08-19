@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='bookApp2'>
+
+<head>
+    <title>Love to read</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <ul>
+        <li><a href="/#/home">Home</a></li>
+        <li><a href="/#/toRead">To Read</a></li>
+        <li><a href="/#/haveRead">Have Read</a></li>
+        <li><a href="/#/top10">Top 10</a></li>
+    </ul>
+    <ng-view></ng-view>
+    <!-- SCRIPT FILES -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
+    <script src="app.js"></script>
+    <!-- Controllers -->
+    <script src="Controllers/homeCtrl.js"></script>
+    <script src="Controllers/toReadCtrl.js"></script>
+    <script src="Controllers/haveReadCtrl.js"></script>
+    <script src="Controllers/top10Ctrl.js"></script>
+    <!-- Services -->
+    <script src="Services/homeService.js"></script>
+    <script src="Services/toReadService.js"></script>
+    <script src="Services/haveReadService.js"></script>
+    <script src="Services/top10Service.js"></script>
+    <!-- Directives -->
+    <script src="directives/starDirective.js"></script>
+</body>
+
+</html>
