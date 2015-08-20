@@ -1,27 +1,27 @@
 var app = angular.module('bookApp2');
 var i = 0;
 app.controller('homeCtrl', function($scope, homeService) {
-    $scope.rateFunction = function(rating) {
-        console.log('at homeCtrl');
-    }
-    $scope.deleteBook = function(title) {
-        homeService.deleteBook(title);
-        $scope.inputVisible = !$scope.inputVisible;
-    }
+    // $scope.rateFunction = function(rating) {
+    //     console.log('at homeCtrl');
+    // }
+    // $scope.deleteBook = function(title) {
+    //     homeService.deleteBook(title);
+    //     $scope.inputVisible = !$scope.inputVisible;
+    // }
     $scope.inputVisible = false;
     $scope.loadArray = false;
 
     $scope.currentFaves = homeService.currentFaves;
     console.log($scope.currentFaves);
-    bookObject = {};
-
+    var bookObject = {};
+    var book = {};
     // $scope.currentFaves = [];
 
     $scope.searchForBook = function(title, author) {
         console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
             console.log(data);
-            var bookObject = {};
+            bookObject = {};
             // $scope.books = data;
 
             bookObject.author = data.items[0].volumeInfo.authors[0];
@@ -30,19 +30,28 @@ app.controller('homeCtrl', function($scope, homeService) {
             bookObject.image = data.items[0].volumeInfo.imageLinks.smallThumbnail;
             bookObject.review = data.items[0].searchInfo.textSnippet;
             bookObject.rating= data.items[0].averageRatings;
-            console.log(bookObject.review);
+            // console.log($scope.bookObject.review);
             bookObject.id = data.items[0].id;
-            console.log(data.items[0].volumeInfo.imageLinks.smallThumbnail);
             $scope.currentFaves[i] = bookObject; 
             i++;
             // $scope.currentFaves.push(bookObject);
      
      })  
     
+    }
+    
+    $scope.postBook = function(book){
+        homeService.postBook(book);
+    }
 
+    $scope.findAndDelete = function(book) {
+        databaseBook = findAndDelete(book);
+        homeService.deleteBook(dataBasebook)
     }
 
 });
+
+
 
 
 

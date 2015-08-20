@@ -1,4 +1,4 @@
-var book = require('../models/Book');
+  var book = require('../models/Book');
 
 module.exports = {
 
@@ -25,18 +25,16 @@ module.exports = {
       function(err, result) {
         if (err) return res.status(500).send(err);
         res.send(result);
-      }
-    );
+    });
   },
 
   delete: function(req, res) {
-    Book.findByIdAndRemove(
-      req.params.id,
-      function(err, result) {
-        if (err) return res.status(500).send(err);
-        res.send(result);
-      }
-    );
-  }
+    console.log(req.params.id);
+    book.findByIdAndRemove(req.params.id, function(err, result) {
+      if (err) return res.status(500).send(err);
+      res.send(result);
+    });
+  } 
+  
 
 };
