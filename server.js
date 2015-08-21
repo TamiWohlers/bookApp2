@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/Public'));
 app.use(cors());
 
 //port
-var nodeport = 8090;
+var nodeport = 8080;
 mongoUri = 'localhost: 27017/order'
 mongoose.connect(mongoUri, function(err) {
     if (err) {
@@ -37,10 +37,10 @@ var bookCtrl = require('./backEndControllers/bookCtrl');
 //endpoints
 // 
 app.post('/api/books', bookCtrl.create);
-app.get( 'api/books',bookCtrl.read);
+app.get( '/api/books',bookCtrl.read);
 app.put('/api/books/:id', bookCtrl.update);
-app.delete('/api/books/:id', bookCtrl.delete);
-
+app.delete('/api/books/:id', bookCtrl.remove);
+// app.get('api/books', bookCtrl.readAll)
 // app.post('/api/order', orderCtrl.create);
 // app.get('/api/order', orderCtrl.read);
 // app.put('/api/order', orderCtrl.update);

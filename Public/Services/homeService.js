@@ -7,7 +7,7 @@ app.service('homeService', function($http, $q) {
     this.currentFaves = [];
     this.searchForBook = function(title, author) {
         var deferred = $q.defer();
-        var url = 'https://www.googleapis.com/books/v1/volumes?q=' + title + '+inauthor:' + author + '&key=AIzaSyClPKaQQ-2oJbYfY_R9Rh3R5asYjevI9BQ';
+        var url = 'https://www.googleapis.com/books/v1/volumes?q=' + title + '+inauthor:' + author + '&key=';
         console.log(url);
         $http({
             method: 'GET',
@@ -18,9 +18,12 @@ app.service('homeService', function($http, $q) {
         return deferred.promise;
 }
 
-    this.findAndDelete= function(book) {
-        var deferred = $q.defer();
-        var url = '/api/books/'
+    this.findBook= function(book) {
+        // console.log("first line of findBook", book);
+        // var deferred = $q.defer();
+        book.title = book.title.toLowerCase(); 
+        // console.log(book.title);  
+        var url = '/api/books?title=' + book.title;
         $http({
             method: 'GET',
             url: url
@@ -33,7 +36,8 @@ app.service('homeService', function($http, $q) {
     this.postBook = function(book){
         var deferred = $q.defer();      
         var url = '/api/books/'
-        return $http({
+        // return 
+        $http({
             method: 'POST',
             url: url,
             data: book   
@@ -44,10 +48,11 @@ app.service('homeService', function($http, $q) {
         return deferred.promise;
  }
 
-    this.deleteBook = function(book){
+    this.deleteBook = function(dataBaseBook){
         var deferred = $q.defer();
-        var url = '/api/books/'  + book._id;
-        return $http({
+        var url = '/api/books/' + dataBaseBook._id;
+        // return 
+        $http({
             method: 'DELETE',
             url: url,
         }).then(function(data){
@@ -56,4 +61,19 @@ app.service('homeService', function($http, $q) {
         })
         return deferred.promise;
 }
+
+    
+
+ // this.getAll= function(book) {
+ //        var deferred = $q.defer();  
+ //        var url = '/api/books';
+ //        $http({
+ //            method: 'GET',
+ //            url: url
+ //        }).then(function(data) {
+ //            deferred.resolve(data.data)
+ //        })
+ //        return deferred.promise;
+ //    }
+
 });

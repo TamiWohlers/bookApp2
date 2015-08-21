@@ -10,16 +10,25 @@ module.exports = {
     });
   },
 
+  // readAll: function(req, res) {
+  //   book.find()
+  //   .exec(function(err, result) {
+  //     if (err) return res.status(500).send(err);
+  //     res.send  (result);
+  //   });
+  // },
+
   read: function(req, res) {
-    Book.find(req.query)
+    console.log(req.query.title);
+    book.findOne({title: req.query.title})
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);
-      res.send(result);
+      res.json(result);
     });
   },
 
   update: function(req, res) {
-    Book.findByIdAndUpdate(
+    book.findByIdAndUpdate(
       req.params.id,
       req.body,
       function(err, result) {
@@ -28,7 +37,7 @@ module.exports = {
     });
   },
 
-  delete: function(req, res) {
+  remove: function(req, res) {
     console.log(req.params.id);
     book.findByIdAndRemove(req.params.id, function(err, result) {
       if (err) return res.status(500).send(err);
