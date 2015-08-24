@@ -1,5 +1,16 @@
 var app = angular.module('bookApp2');
+var i = 0
 app.controller('homeCtrl', function($scope, homeService) {
+
+    $scope.getAll = function() {
+        homeService.getAll().then(function(data){
+            console.log(data);
+            $scope.currentFaves = data;
+            console.log('in getAll on home.Ctrl', data);
+            i = data.length;
+        })
+    }
+    $scope.getAll();
     $scope.inputVisible = false;
     $scope.loadArray = false;
     var dataBaseBook = {};
@@ -7,9 +18,19 @@ app.controller('homeCtrl', function($scope, homeService) {
     console.log($scope.currentFaves);
     var bookObject = {};
     var book = {};
-    var i = 0;
+    // var i = 0;
     // $scope.currentFaves = [];
-
+  
+    // $scope.getAll= function() {
+    //     homeService.getAll();
+    // }
+    // $scope.getAll(); 
+    $scope.postBook = function(book){
+        homeService.postBook(book).then(function(data){
+        console.log('in postbook', data);
+        })
+    }
+   
     $scope.searchForBook = function(title, author) {
         console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
@@ -27,6 +48,7 @@ app.controller('homeCtrl', function($scope, homeService) {
             bookObject.id = data.items[0].id;
             $scope.currentFaves[i] = (bookObject);
             i++;
+            $scope.postBook(bookObject);
             console.log('in Search', $scope.currentFaves)
             // $scope.currentFaves.push(bookObject);
      
@@ -34,11 +56,7 @@ app.controller('homeCtrl', function($scope, homeService) {
     
     }
     
-    $scope.postBook = function(book){
-        homeService.postBook(book).then(function(data){
-        console.log('in postbook', data);
-        })
-    }
+    
 
     $scope.findAndDeleteBook = function(book){
         console.log("first line in findAndDelete", book)
@@ -47,18 +65,16 @@ app.controller('homeCtrl', function($scope, homeService) {
             // dbBook = data;
             // console.log(dbBook)
         homeService.deleteBook(data);
-        $scope.currentFaves.splice(i-1, 1);
-        i = i-1;
+        $scope.currentFaves.splice(i -1, 1);
+        i--;
         console.log('current faves', $scope.currentFaves);
+        $scope.getAll();
         })
+
     }
 
-    // $scope.getAll = function() {
-    //     homeService.getAll().then(function(data){
-    //         $scope.currentFaves = data;
-    //         console.log('in getAll', data);
-    //     })
-    // }
+    
+
 
 })
 
@@ -66,32 +82,6 @@ app.controller('homeCtrl', function($scope, homeService) {
 
 
 
-
-    // app.controller('teamCtrl', function($scope, $routeParams, teamService, teamData){
-    //   $scope.teamData = teamData;
-    //   console.log($scope.teamData);
-    //   $scope.newGame = {};
-    //   $scope.showNewGame = false;
-    //   $scope.toggleNewGameForm = function() {
-    //     $scope.showNewGame = true;
-    //     }
-    //    var teamId = $routeParams.team;
-    //     if(teamId === 'utahjazz') {
-    //         $scope.teamName = 'Utah Jazz';
-    //         $scope.logoPath = 'images/jazz-logo.png';
-    //     }
-    //     else if(teamId === 'losangeleslakers') {
-    //         $scope.teamName = 'Los Angeles Lakers';
-    //         $scope.logoPath = 'images/lakers-logo.png';
-    //     }
-    //     else if(teamId === 'miamiheat') {
-    //         $scope.teamName = 'Miami Heat';
-    //         $scope.logoPath = 'images/heat-logo.png'
-    //     }
-    //     $scope.submitGame = function(){
-
-    //     }
-    //     });
 
 
 

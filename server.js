@@ -38,6 +38,7 @@ var bookCtrl = require('./backEndControllers/bookCtrl');
 // 
 app.post('/api/books', bookCtrl.create);
 app.get( '/api/books',bookCtrl.read);
+app.get('/api/books/all', bookCtrl.readAll); 
 app.put('/api/books/:id', bookCtrl.update);
 app.delete('/api/books/:id', bookCtrl.remove);
 // app.get('api/books', bookCtrl.readAll)

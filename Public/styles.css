@@ -5,6 +5,11 @@ html{
     text-align: center;
 }
 
+div.wrapper {
+  margin: 20px auto;
+  width: 350px;
+}
+
 .bookshelf {
 	background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT130URiwRHoS6FcvZO5U9ZURdbcIBRzeqQFH-SAF616FCX3VfZ');
 	background-repeat: repeat-x; 
@@ -63,6 +68,16 @@ ul.rating {
 .rating .filled {
   color: blue;
 }
+{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 
 
 

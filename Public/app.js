@@ -1,4 +1,4 @@
-var app = angular.module('bookApp2', ['ngRoute']);
+var app = angular.module('bookApp2', ['ngRoute'])
 
     app.config(function($routeProvider, $httpProvider) {
 
@@ -27,4 +27,6 @@ var app = angular.module('bookApp2', ['ngRoute']);
             .otherwise({
                 redirectTo: '/home'
             })
-});
+ 
+ });
+
