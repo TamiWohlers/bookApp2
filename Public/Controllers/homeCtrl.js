@@ -1,7 +1,7 @@
 var app = angular.module('bookApp2');
 var i = 0
 readBooks = [];
-app.controller('homeCtrl', function($scope, homeService, haveReadService) {
+app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal, $log) {
 
     $scope.getAll = function() {
         homeService.getAll().then(function(data) {
@@ -70,7 +70,7 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService) {
             // dbBook = data;
             // console.log(dbBook)
             homeService.deleteBook(data);
-            $scope.currentFaves.splice(i -1, 1);
+            $scope.currentFaves.splice(i - 1, 1);
             i--;
             console.log('current faves', $scope.currentFaves);
             $scope.getAll();
@@ -78,17 +78,88 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService) {
 
     }
 
-    $scope.finishedBook = function(book) {
+    
+    $scope.modalShown = false;   
+    $scope.toggleModal = function() {
+    $scope.modalShown = !$scope.modalShown;
+}
+
+// $scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.animationsEnabled = true;
+  $scope.reviewNotFinished = true;
+  $scope.open = function (size) {
+
+    var modalInstance = $modal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      // resolve: {
+      //   items: function () {
+      //     return $scope.items;
+      //   }
+      // }
+    });
+
+    modalInstance.result.then(function (bookReviewed) {
+      // $scope.selected = selectedItem;
+      console.log(bookReviewed);
+      $scope.finishedBook = function(book) {
         // bookObject = {};
         console.log('in finishedbook', book);
-        haveReadService.changeReadStatus(book).then(function(data) {
+        haveReadService.changeReadStatus(book, bookReviewed).then(function(data) {
             $scope.getAll();
         })
     }
-})
+      // console.log(bookReview);
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
+});
 
 
 
+// angular.module('bookApp2').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+//     console.log($scope.starRating)
+//   // $scope.items = items;
+//   // $scope.selected = {
+//   //   item: $scope.items[0]
+//   // };
+//   // $scope.open = function (size) {
+
+//   //   var modalInstance = $modal.open({
+//   //     animation: $scope.animationsEnabled,
+//   //     templateUrl: 'myModalContent.html',
+//   //     controller: 'ModalInstanceCtrl',
+//   //     size: size,
+//   //     // resolve: {
+//   //     //   items: function () {
+//   //     //     return $scope.items;
+//   //     //   }
+//   //     // }
+//   //   });
+
+//   //   modalInstance.result.then(function (selectedItem) {
+//   //     $scope.selected = selectedItem;
+//   //   }, function () {
+//   //     $log.info('Modal dismissed at: ' + new Date());
+//   //   });
+//   // };
+
+//   $scope.ok = function () {
+//     $modalInstance.close("hi there");
+//   };
+
+//   $scope.cancel = function () {
+//     $modalInstance.dismiss('cancel');
+//   };
+// });
 
 
 

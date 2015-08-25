@@ -1,4 +1,4 @@
-var app = angular.module('bookApp2', ['ngRoute'])
+var app = angular.module('bookApp2', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
 
     app.config(function($routeProvider, $httpProvider) {
 

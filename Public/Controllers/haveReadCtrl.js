@@ -43,11 +43,11 @@ app.controller('haveReadCtrl', function($scope, haveReadService, homeService) {
         })
     }
 
-    rateFunction = function(rating) {
-            $scope.bookObject._v = rating;
-            rateFunction(rating);
-            console.log(rating);
-        }
+    // rateFunction = function(rating) {
+    //         $scope.bookObject._v = rating;
+    //         rateFunction(rating);
+    //         console.log(rating);
+    //     }
 
         $scope.findAndDeleteBook = function(book) {
             homeService.findBook(book).then(function(data) {

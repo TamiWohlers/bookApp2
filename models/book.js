@@ -4,8 +4,8 @@ var bookSchema = new mongoose.Schema({
       author: {type: String, lowercase: true, required: true},
       title: {type: String, lowercase: true, required: true},
       image: {type: String},
-      review: {type: String},
-      rating: {type: String},
+      review: {type: String, required: false},
+      rating: {type: String, required: false},
       id: {type:String},
       readStatus: {
         type: String,

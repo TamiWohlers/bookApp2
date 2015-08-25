@@ -5,8 +5,10 @@ var app = angular.module("bookApp2");
 app.service('haveReadService', function($http, $q) {
 	this.readBooks = [];
 
-	this.changeReadStatus= function(book){
-		    book.readStatus =  "have read"
+	this.changeReadStatus= function(book, bookReviewed){
+		    book.readStatus =  "have read";
+		    book.review = bookReviewed.review;
+		    book.rating = bookReviewed.rating;
     		this.readBooks.push(book);
     		var deferred = $q.defer();
     		var url = '/api/books/' + book._id
@@ -20,6 +22,6 @@ app.service('haveReadService', function($http, $q) {
 	    	return deferred.promise;
 
     	}
-    	
+
 });
 
