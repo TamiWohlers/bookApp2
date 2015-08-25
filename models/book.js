@@ -6,7 +6,16 @@ var bookSchema = new mongoose.Schema({
       image: {type: String},
       review: {type: String},
       rating: {type: String},
-      id: {type:String}
+      id: {type:String},
+      readStatus: {
+        type: String,
+        lowercase: true,
+        enum: [
+        'currently reading',
+        'have read',
+        'want to read'
+      ]
+    }
     });
 
 

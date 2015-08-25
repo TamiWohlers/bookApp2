@@ -31,16 +31,20 @@ mongoose.connect(mongoUri, function(err) {
 
 //controllers
 var bookCtrl = require('./backEndControllers/bookCtrl');
+var readCtrl = require('./backEndControllers/readCtrl');
 // var orderCtrl = require('./controllers/orderCtrl')
 
 
 //endpoints
 // 
 app.post('/api/books', bookCtrl.create);
+// app.post('/api/readBooks', readCtrl.create);
 app.get( '/api/books',bookCtrl.read);
 app.get('/api/books/all', bookCtrl.readAll); 
+// app.get('/api/readBooks/all', readCtrl.getAll);
 app.put('/api/books/:id', bookCtrl.update);
 app.delete('/api/books/:id', bookCtrl.remove);
+// app.update('/api/books', bookCtrl.update);
 // app.get('api/books', bookCtrl.readAll)
 // app.post('/api/order', orderCtrl.create);
 // app.get('/api/order', orderCtrl.read);
