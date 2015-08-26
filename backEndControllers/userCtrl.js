@@ -12,6 +12,7 @@ module.exports = {
   },
 
   read: function(req, res) {
+  	console.log(req.params);
     user.findOne({user: req.query.user})
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);

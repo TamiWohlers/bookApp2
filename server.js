@@ -42,7 +42,7 @@ app.post('/api/books', bookCtrl.create);
 app.post('/api/users', userCtrl.create);
 app.get( '/api/books',bookCtrl.read);
 app.get('/api/books/all', bookCtrl.readAll);
-app.get('/api/users', userCtrl.read) 
+app.get('/api/users/getId', userCtrl.read) 
 // app.get('/api/readBooks/all', readCtrl.getAll);
 app.put('/api/books/:id', bookCtrl.update);
 app.delete('/api/books/:id', bookCtrl.remove);

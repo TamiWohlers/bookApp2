@@ -14,16 +14,20 @@ app.service('userService', function($http, $q){
 		})
 		return deferred.promise;
 	}
-})
+
 
 this.logInUser = function(userObject){
 	var deferred = $q.defer();
-	var url = '/api/users?=' + userObject.user;
+	var url = '/api/users/getId?=' + userObject.user + 'password?=' + userObject.password;
 	$http({
 		method: 'GET',
 		url: url
 	}).then(function(data){
 		deferred.resolve(data)
+		console.log(data);
 	})
+
 	return deferred.promise;
 }
+
+})
