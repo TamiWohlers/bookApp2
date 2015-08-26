@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app='bookApp2'>
+<!-- <div class = "bookshelf"></div> -->
 
 <head>
     <title>Love to read</title>
@@ -10,13 +11,16 @@
 </head>
 
 <body>
-    <ul>
+    <!-- <div class = "bookshelf"></div> -->
+    
+    <!-- <div class = "bookshelf"><div> -->
+    <!-- <ul>
         <li><a href="/#/home">Home</a></li>
-        <li><a href="/#/toRead">To Read</a></li>
+        <li><a href="/#/toReadView">To Read</a></li>
         <li><a href="/#/haveRead">Have Read</a></li>
-        <li><a href="/#/top10">Top 10</a></li>
-    </ul>
-    <ng-view></ng-view>
+        <li><a href="/#/top10View">Top 10</a></li>
+    </ul> -->
+    <ui-view></ui-view>
     <!-- SCRIPT FILES -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
@@ -37,6 +41,9 @@
     <script src="Controllers/ModalDemoControl.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
+    <script src="Controllers/userCtrl.js"></script>
+    <script src="Services/userService.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     
   </head>
   <body>

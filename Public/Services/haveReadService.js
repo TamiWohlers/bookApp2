@@ -9,6 +9,8 @@ app.service('haveReadService', function($http, $q) {
 		    book.readStatus =  "have read";
 		    book.review = bookReviewed.review;
 		    book.rating = bookReviewed.rating;
+		    console.log('book rating', book.rating);
+		    console.log('in change', book);
     		this.readBooks.push(book);
     		var deferred = $q.defer();
     		var url = '/api/books/' + book._id

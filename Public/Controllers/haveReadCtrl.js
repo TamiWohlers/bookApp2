@@ -5,12 +5,42 @@ app.controller('haveReadCtrl', function($scope, haveReadService, homeService) {
     $scope.getAll = function() {
         homeService.getAll().then(function(data) {
             console.log('in haveReadService data', data);
-            $scope.getRead(data);
+            $scope.getCurrent(data);
             // $scope.currentFaves = data;
             // console.log('in getAll on home.Ctrl', data);
             // i = data.length;
         })
+       }
+       $scope.getCurrent = function(data) {
+        console.log('in getCurrent', data);
+        var haveReadArray = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].readStatus === 'have read') {
+                haveReadArray.push(data[i]);
+            }
+            $scope.haveRead = haveReadArray;
+        }
     }
+
+    $scope.searchForBook = function(title, author) {
+
+        // console.log('in controller', title, author);
+        homeService.searchForBook(title, author).then(function(data) {
+            // console.log(data)
+
+            homeService.buildObject($scope.bookObject, data);
+
+            $scope.bookObject.readStatus = 'have read';
+            homeService.postBook($scope.bookObject);
+            
+            
+            // console.log('in Search', $scope.currentFaves)
+            // $scope.currentFaves.push(bookObject); 
+
+        })
+    }
+    
+
     $scope.getAll();
     $scope.getRead = function(data) {
         var haveReadArray = [];
@@ -23,39 +53,28 @@ app.controller('haveReadCtrl', function($scope, haveReadService, homeService) {
         $scope.readBooks = haveReadArray;
     }
 
+    $scope.findAndDeleteBook = function(book) {
+            homeService.findBook(book).then(function(data) {
+                homeService.deleteBook(data);
+                $scope.getAll();
+            })
+        }
+
     $scope.bookObject = {};
-    $scope.searchForBook = function(title, author) {
-
-        // console.log('in controller', title, author);
-        homeService.searchForBook(title, author).then(function(data) {
-            // console.log(data)
-
-            homeService.buildObject($scope.bookObject, data);
-
-            $scope.bookObject.readStatus = 'have read';
-            homeService.postBook($scope.bookObject);
-            $scope.getAll();
-            
-            
-            // console.log('in Search', $scope.currentFaves)
-            // $scope.currentFaves.push(bookObject); 
-
-        })
-    }
-
+    
     // rateFunction = function(rating) {
     //         $scope.bookObject._v = rating;
     //         rateFunction(rating);
     //         console.log(rating);
     //     }
 
-        $scope.findAndDeleteBook = function(book) {
-            homeService.findBook(book).then(function(data) {
-                homeService.deleteBook(data);
-                $scope.getAll();
+        // $scope.findAndDeleteBook = function(book) {
+        //     homeService.findBook(book).then(function(data) {
+        //         homeService.deleteBook(data);
+        //         $scope.getAll();
 
-            })
-        }
+        //     })
+        // }
 
     });
 

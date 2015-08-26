@@ -1,5 +1,57 @@
 var app = angular.module('bookApp2');
 
-app.controller('toReadCtrl', function($scope, toReadService){
-  $scope.author = 'Jane Austen'
+app.controller('toReadCtrl', function($scope, toReadService, homeService) {
+    $scope.toRead = [];
+      
+    $scope.searchForBook = function(title, author) {
+
+
+
+        // console.log('in controller', title, author);
+        homeService.searchForBook(title, author).then(function(data) {
+            console.log(data);
+            $scope.bookObject = {};
+
+            homeService.buildObject($scope.bookObject, data);
+            console.log($scope.bookObject);
+            $scope.bookObject.readStatus = 'want to read';
+            homeService.postBook($scope.bookObject);
+
+
+        })
+    }
+
+    $scope.getCurrent = function(data) {
+        console.log('in getCurrent', data);
+        var newReadArray = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].readStatus === 'want to read') {
+                newReadArray.push(data[i]);
+            }
+            $scope.toRead = newReadArray;
+        }
+    }
+        $scope.getAll = function() {
+            homeService.getAll().then(function(data) {
+                // console.log(data);
+                $scope.getCurrent(data);
+                // $scope.currentFaves = data;
+                // console.log('in getAll on home.Ctrl', data);
+                i = data.length;
+            })
+        }
+
+        $scope.getAll();
+
+        $scope.findAndDeleteBook = function(book) {
+            homeService.findBook(book).then(function(data) {
+                homeService.deleteBook(data);
+                $scope.getAll();
+            })
+        }
+
+
+        // console.log('in Search', $scope.currentFaves)
+        // $scope.currentFaves.push(bookObject);
+
 });
