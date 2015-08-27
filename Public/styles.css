@@ -1,18 +1,23 @@
 
 html{
-	background-color: #FCDCC1;
+	background-color: beige;
     font-family: 'Droid Sans', sans-serif;
     text-align: center;
 }
 
 body{
-  background-color: #FCDCC1;
+  background-color: beige;
 }
 
 div.wrapper {
   margin: 20px auto;
   width: 350px;
-  background-color:#FCDCC1;
+  background-color: beige;
+}
+
+input {
+    -webkit-appearance: none;
+
 }
 
 /*.bookImage {
@@ -48,13 +53,14 @@ li {
 
 a:link, a:visited {
     display: block;
-    width: 270px;
+    width: 300px;
     font-weight: bold;
+    font-size: 18px;
     color: #3333333;
-    background-color: #FCDCC1;
-;
+    background-color:beige;
+
     text-align: center;
-    padding: 4px;
+    padding: 20px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -101,6 +107,7 @@ ul.rating {
 .btn-primary {
   font-weight: bold;
 }
+
 
 
 
