@@ -44,9 +44,10 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
     $scope.bookObject = {};
     $scope.searchForBook = function(title, author) {
 
-        // console.log('in controller', title, author);
+         console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
-            // console.log(data)
+
+            console.log("raw data", data)
 
             homeService.buildObject($scope.bookObject, data);
 
@@ -120,6 +121,11 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
+
+  // var getId = function() {
+  //   homeService.getId();
+  // }
+  // getId();
 
 });
 

@@ -17,7 +17,7 @@ app.controller('toReadCtrl', function($scope, toReadService, homeService) {
             $scope.bookObject.readStatus = 'want to read';
             homeService.postBook($scope.bookObject);
 
-
+            $scope.getAll();
         })
     }
 

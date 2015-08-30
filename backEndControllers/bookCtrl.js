@@ -11,7 +11,7 @@ module.exports = {
   },
 
   readAll: function(req, res) {
-    console.log('in bookCtrl readAll');
+    // console.log('in bookCtrl readAll');
     book.find()
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);

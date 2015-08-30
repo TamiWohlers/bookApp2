@@ -20,6 +20,11 @@ input {
 
 }
 
+/*.container {
+  display: flex;  or inline-flex 
+  flex-direction:row;
+}*/
+
 /*.bookImage {
   background-image-repeat: x-axis;
 }*/
@@ -107,6 +112,12 @@ ul.rating {
 .btn-primary {
   font-weight: bold;
 }
+
+.facebookLogIn {
+
+}
+
+
 
 
 

@@ -35,8 +35,8 @@ app.controller('haveReadCtrl', function($scope, haveReadService, homeService) {
             
             
             // console.log('in Search', $scope.currentFaves)
-            // $scope.currentFaves.push(bookObject); 
-
+            $scope.currentFaves.push(bookObject); 
+            $scope.getAll();
         })
     }
     

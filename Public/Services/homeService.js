@@ -79,7 +79,8 @@ app.service('homeService', function($http, $q) {
 
 
 
-  this.buildObject = function(bookObject, data) {   
+  this.buildObject = function(bookObject, data) { 
+        console.log('in buildObject', data)  
             // $scope.books = data;
         bookObject.author = data.items[0].volumeInfo.authors[0];
         // console.log(bookObject.author);
@@ -87,8 +88,22 @@ app.service('homeService', function($http, $q) {
         bookObject.image = data.items[0].volumeInfo.imageLinks.smallThumbnail;
         //  
         bookObject.rating= data.items[0].averageRatings;
+            
+        bookObject.genre = data.items[0].volumeInfo.categories[0];
         // console.log($scope.bookObject.review);
-        bookObject.id = data.items[0].id;   
+        // this.getId = function() {
+        //     var deferred = $q.defer();
+        //     var url = '/auth/facebook';
+        //     $http({
+        //         method: 'GET',
+        //         url: url
+        //     }).then(function(data){
+        //         deferred.resolve(data);
+        //         console.log('Data in get Id', data);
+        //         bookObject.userId = data.id;
+        //     })
+        // }
+        // this.getId();
   }
   });
 

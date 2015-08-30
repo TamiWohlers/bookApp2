@@ -7,14 +7,15 @@ var bookSchema = new mongoose.Schema({
       review: {type: String, required: false},
       rating: {type: Number, required: false},
       id: {type:String},
-      userId: {type: Number},
+      genre: {type: String},
       readStatus: {
         type: String,
         lowercase: true,
         enum: [
         'currently reading',
         'have read',
-        'want to read'
+        'want to read',
+        'favorites'
       ]
     }
     });

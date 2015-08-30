@@ -24,10 +24,10 @@ $urlRouterProvider.otherwise(
                     controller: 'haveReadCtrl'
 
         })
-        .state('top10', {
-            url: '/top10View',
-                    templateUrl: 'Views/top10View.html',
-                    controller: 'top10Ctrl'
+        .state('favorites', {
+            url: '/favorites',
+                    templateUrl: 'Views/favoritesView.html',
+                    controller: 'favoritesCtrl'
         })
         .state('userView', {
             url: '/userView',
