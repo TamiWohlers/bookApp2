@@ -67,9 +67,9 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
     $scope.findAndDeleteBook = function(book) {
         console.log("first line in findAndDelete", book)
         homeService.findBook(book).then(function(data) {
-            // console.log('in findbook', data);
-            // dbBook = data;
-            // console.log(dbBook)
+            console.log('in findAndDelete', data);
+            dbBook = data;
+            console.log(dbBook)
             homeService.deleteBook(data);
             $scope.currentFaves.splice(i - 1, 1);
             i--;
@@ -121,6 +121,10 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
+
+//   FB.logout(function(response) {
+//   // user is now logged out
+// });
 
   // var getId = function() {
   //   homeService.getId();

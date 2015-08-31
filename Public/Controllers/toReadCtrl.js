@@ -43,6 +43,21 @@ app.controller('toReadCtrl', function($scope, toReadService, homeService) {
 
         $scope.getAll();
 
+        $scope.buildCart = function(book) {
+            console.log(book)
+            toReadService.buildCart(book).then(function(data){
+                $scope.addToCart(data);
+            })
+        }
+        
+        $scope.addToCart = function(cart) {  
+            toReadService.addToCart(cart).then(function(data){
+                console.logytgyguiiu
+            })
+        }
+
+
+
         $scope.findAndDeleteBook = function(book) {
             homeService.findBook(book).then(function(data) {
                 homeService.deleteBook(data);
@@ -50,8 +65,15 @@ app.controller('toReadCtrl', function($scope, toReadService, homeService) {
             })
         }
 
+        
+        
+    });
+
+
+
+
+            
+
 
         // console.log('in Search', $scope.currentFaves)
         // $scope.currentFaves.push(bookObject);
-
-});

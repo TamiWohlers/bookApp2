@@ -59,7 +59,9 @@ app.controller('favoritesCtrl', function($scope, userService, homeService){
     }
     
     $scope.findAndDeleteBook = function(book) {
+    		//console.log('in find and delete', book)
             homeService.findBook(book).then(function(data) {
+            	console.log('in findBook', data)
                 homeService.deleteBook(data);
                 $scope.getAll();
             })

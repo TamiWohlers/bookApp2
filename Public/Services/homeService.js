@@ -19,7 +19,7 @@ app.service('homeService', function($http, $q) {
 }
 
     this.findBook= function(book) {
-        // console.log("first line of findBook", book);
+        //console.log("first line of findBook", book);
         var deferred = $q.defer();
         book.title = book.title.toLowerCase(); 
         // console.log(book.title);  
@@ -28,6 +28,7 @@ app.service('homeService', function($http, $q) {
             method: 'GET',
             url: url
         }).then(function(data) {
+            console.log('back from GET in findBook', data)
             deferred.resolve(data.data)
         })
         return deferred.promise;
@@ -48,9 +49,10 @@ app.service('homeService', function($http, $q) {
         return deferred.promise;
  }
 
-    this.deleteBook = function(dataBaseBook){
+    this.deleteBook = function(book){
+        console.log('in delete book', book)
         var deferred = $q.defer();
-        var url = '/api/books/' + dataBaseBook._id;
+        var url = '/api/books/' + book._id;
         // return 
         $http({
             method: 'DELETE',
@@ -84,12 +86,18 @@ app.service('homeService', function($http, $q) {
             // $scope.books = data;
         bookObject.author = data.items[0].volumeInfo.authors[0];
         // console.log(bookObject.author);
-        bookObject.title = data.items[0].volumeInfo.title;
+        bookObject.title = data.items[0].volumeInfo.title
         bookObject.image = data.items[0].volumeInfo.imageLinks.smallThumbnail;
         //  
         bookObject.rating= data.items[0].averageRatings;
             
-        bookObject.genre = data.items[0].volumeInfo.categories[0];
+        bookObject.isEbook = data.items[0].saleInfo.isEbook;
+        console.log('saleInfo', data.items[0].saleInfo.isEbook);
+        if (bookObject.isEbook === true) {
+            console.log('inside if', bookObject.isEbook);
+            bookObject.price =  data.items[0].saleInfo.listPrice.amount;
+            console.log(bookObject.price);       
+        }
         // console.log($scope.bookObject.review);
         // this.getId = function() {
         //     var deferred = $q.defer();

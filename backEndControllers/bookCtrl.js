@@ -1,4 +1,4 @@
-  var book = require('../models/Book');
+var book = require('../models/Book');
 
 module.exports = {
 

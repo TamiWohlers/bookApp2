@@ -13,7 +13,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/Public'));
 app.use(cors());
-app.use(session({secret: 'I still miss Ian'}))
+app.use(session({secret: 'I still miss Ian'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -39,6 +39,7 @@ passport.use(new FacebookStrategy({
 //controllers
 var bookCtrl = require('./backEndControllers/bookCtrl');
 var userCtrl = require('./backEndControllers/userCtrl');
+var cartCtrl = require('./backEndControllers/cartCtrl');
 // var readCtrl = require('./backEndControllers/readCtrl');
 // var orderCtrl = require('./controllers/orderCtrl')
 passport.serializeUser(function(user, done) {
@@ -66,6 +67,7 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 // app.get('/api/userName', bookCtrl.getId);
 app.post('/api/books', bookCtrl.create);
 app.post('/api/users', userCtrl.create);
+app.post('/api/cart', cartCtrl.create);	
 app.get( '/api/books',bookCtrl.read);
 app.get('/api/books/all', bookCtrl.readAll);
 app.get('/api/users/getId', userCtrl.read);
@@ -76,7 +78,7 @@ app.put('/api/books/:id', bookCtrl.update);
 app.delete('/api/books/:id', bookCtrl.remove);
 
 //port
-var nodeport = 8080;
+var nodeport = 8000;
 mongoUri = 'localhost: 27017/order'
 mongoose.connect(mongoUri, function(err) {
     if (err) {
