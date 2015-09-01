@@ -67,8 +67,10 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 // app.get('/api/userName', bookCtrl.getId);
 app.post('/api/books', bookCtrl.create);
 app.post('/api/users', userCtrl.create);
-app.post('/api/cart', cartCtrl.create);	
+app.post('/api/carts', cartCtrl.create);	
 app.get( '/api/books',bookCtrl.read);
+app.get('/api/carts/book/:id', cartCtrl.read);
+app.get('/api/carts/all', cartCtrl.readAll);	
 app.get('/api/books/all', bookCtrl.readAll);
 app.get('/api/users/getId', userCtrl.read);
 app.get('/auth/facebook', passport.authenticate('facebook'));
@@ -76,6 +78,7 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 // app.get('/api/readBooks/all', readCtrl.getAll);
 app.put('/api/books/:id', bookCtrl.update);
 app.delete('/api/books/:id', bookCtrl.remove);
+app.delete('/api/carts/:id', cartCtrl.remove);
 
 //port
 var nodeport = 8000;

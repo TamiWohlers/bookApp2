@@ -71,9 +71,9 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
             dbBook = data;
             console.log(dbBook)
             homeService.deleteBook(data);
-            $scope.currentFaves.splice(i - 1, 1);
-            i--;
-            console.log('current faves', $scope.currentFaves);
+            // $scope.currentFaves.splice(i - 1, 1);
+            // i--;
+            // console.log('current faves', $scope.currentFaves);
             $scope.getAll();
         })
 

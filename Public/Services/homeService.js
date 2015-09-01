@@ -98,6 +98,7 @@ app.service('homeService', function($http, $q) {
             bookObject.price =  data.items[0].saleInfo.listPrice.amount;
             console.log(bookObject.price);       
         }
+        return bookObject;
         // console.log($scope.bookObject.review);
         // this.getId = function() {
         //     var deferred = $q.defer();

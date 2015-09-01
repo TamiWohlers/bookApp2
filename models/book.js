@@ -6,8 +6,11 @@ var bookSchema = new mongoose.Schema({
       image: {type: String},
       review: {type: String, required: false},
       rating: {type: Number, required: false},
-      id: {type:String},
-      genre: {type: String},
+      // _id: {type:String},
+      // _v: {type: Number},
+      // $$hashkey: {type: String},
+      price: {type: Number},
+      eBook: {type: Boolean},
       readStatus: {
         type: String,
         lowercase: true,

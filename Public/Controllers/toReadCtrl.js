@@ -2,7 +2,7 @@ var app = angular.module('bookApp2');
 
 app.controller('toReadCtrl', function($scope, toReadService, homeService) {
     $scope.toRead = [];
-      
+
     $scope.searchForBook = function(title, author) {
 
 
@@ -31,49 +31,60 @@ app.controller('toReadCtrl', function($scope, toReadService, homeService) {
             $scope.toRead = newReadArray;
         }
     }
-        $scope.getAll = function() {
-            homeService.getAll().then(function(data) {
-                // console.log(data);
-                $scope.getCurrent(data);
-                // $scope.currentFaves = data;
-                // console.log('in getAll on home.Ctrl', data);
-                i = data.length;
-            })
+    $scope.getAll = function() {
+        homeService.getAll().then(function(data) {
+            // console.log(data);
+            $scope.getCurrent(data);
+            // $scope.currentFaves = data;
+            // console.log('in getAll on home.Ctrl', data);
+            // i = data.length;
+        })
+    }
+
+    $scope.getAll();
+
+
+
+    // $scope.addToCart = function(cart) {  
+
+    // }
+
+
+
+    $scope.findAndDeleteBook = function(book) {
+        homeService.findBook(book).then(function(data) {
+            homeService.deleteBook(data);
+            $scope.getAll();
+        })
+    }
+
+    $scope.buildCart = function(book) {
+        console.log(book)
+        var cart = toReadService.buildCart(book);
+        toReadService.addToCart(cart).then(function(data) {
+            console.log('cart', data)
+        })
+    }
+    $scope.booksInCart = [];
+    $scope.getCartBooks = function() {
+        toReadService.getCartBooks().then(function(data) {
+                $scope.booksInCart = data;
+                console.log('in getCartBooks', $scope.booksInCart)
+                
+                })
+                $scope.getCartBooks();
+                
         }
-
-        $scope.getAll();
-
-        $scope.buildCart = function(book) {
-            console.log(book)
-            toReadService.buildCart(book).then(function(data){
-                $scope.addToCart(data);
-            })
-        }
-        
-        $scope.addToCart = function(cart) {  
-            toReadService.addToCart(cart).then(function(data){
-                console.logytgyguiiu
-            })
-        }
-
-
-
-        $scope.findAndDeleteBook = function(book) {
-            homeService.findBook(book).then(function(data) {
-                homeService.deleteBook(data);
-                $scope.getAll();
-            })
-        }
-
-        
-        
     });
+        
 
 
 
 
-            
 
 
-        // console.log('in Search', $scope.currentFaves)
-        // $scope.currentFaves.push(bookObject);
+
+
+
+// console.log('in Search', $scope.currentFaves)
+// $scope.currentFaves.push(bookObject);

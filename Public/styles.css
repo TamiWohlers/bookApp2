@@ -58,7 +58,7 @@ li {
 
 a:link, a:visited {
     display: block;
-    width: 300px;
+    width: 250px;
     font-weight: bold;
     font-size: 18px;
     color: #3333333;
@@ -106,7 +106,7 @@ ul.rating {
   box-sizing: border-box;
 }
 .newUser {
-  bakground-color: beige;
+  background-color: beige;
 }
 
 .btn-primary {
@@ -116,6 +116,17 @@ ul.rating {
 .facebookLogIn {
 
 }
+
+.unavailable {
+  color: red;
+  font-weight: italic;
+}
+
+.inputField {
+  font-size:20px;
+}
+
+
 
 
 
