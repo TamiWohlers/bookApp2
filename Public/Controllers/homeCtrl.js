@@ -29,13 +29,7 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
     // console.log($scope.currentFaves);
     var bookObject = {};
     var book = {};
-    // var i = 0;
-    // $scope.currentFaves = [];
-
-    // $scope.getAll= function() {
-    //     homeService.getAll();
-    // }
-    // $scope.getAll(); 
+    
     $scope.postBook = function(book) {
         homeService.postBook(book).then(function(data) {
 
@@ -47,7 +41,7 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
          console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
 
-            console.log("raw data", data)
+            // console.log("raw data", data)
 
             homeService.buildObject($scope.bookObject, data);
 
@@ -95,12 +89,7 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
       animation: $scope.animationsEnabled,
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
-      size: size,
-      // resolve: {
-      //   items: function () {
-      //     return $scope.items;
-      //   }
-      // }
+      size: size
     });
 
     modalInstance.result.then(function (bookReviewed) {
@@ -122,84 +111,7 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
-//   FB.logout(function(response) {
-//   // user is now logged out
-// });
-
-  // var getId = function() {
-  //   homeService.getId();
-  // }
-  // getId();
-
 });
 
 
 
-// angular.module('bookApp2').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-//     console.log($scope.starRating)
-//   // $scope.items = items;
-//   // $scope.selected = {
-//   //   item: $scope.items[0]
-//   // };
-//   // $scope.open = function (size) {
-
-//   //   var modalInstance = $modal.open({
-//   //     animation: $scope.animationsEnabled,
-//   //     templateUrl: 'myModalContent.html',
-//   //     controller: 'ModalInstanceCtrl',
-//   //     size: size,
-//   //     // resolve: {
-//   //     //   items: function () {
-//   //     //     return $scope.items;
-//   //     //   }
-//   //     // }
-//   //   });
-
-//   //   modalInstance.result.then(function (selectedItem) {
-//   //     $scope.selected = selectedItem;
-//   //   }, function () {
-//   //     $log.info('Modal dismissed at: ' + new Date());
-//   //   });
-//   // };
-
-//   $scope.ok = function () {
-//     $modalInstance.close("hi there");
-//   };
-
-//   $scope.cancel = function () {
-//     $modalInstance.dismiss('cancel');
-//   };
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// app.controller('adminCtrl', function($scope, adminService) {
-//     // var shirt = "t-shirt";
-//     adminService.getProducts().then(function(data) {
-//         console.log(data);
-//         $scope.items = data;
-//     })
-// var _url = 'https:/Services/homeService';
-
-
-
-// $http.post(_url, angular.toJson(data), {
-//         cache: false
-//     })
-//     .success(function(data) {
-//         success(data);
-//     })
-//     .error(function(data) {
-//         error(data);
-//     });

@@ -93,7 +93,7 @@ app.service('homeService', function($http, $q) {
             
         bookObject.isEbook = data.items[0].saleInfo.isEbook;
         console.log('saleInfo', data.items[0].saleInfo.isEbook);
-        if (bookObject.isEbook === true) {
+        if (data.items[0].saleInfo.isEbook != false) {
             console.log('inside if', bookObject.isEbook);
             bookObject.price =  data.items[0].saleInfo.listPrice.amount;
             console.log(bookObject.price);       

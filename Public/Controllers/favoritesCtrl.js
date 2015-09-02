@@ -22,23 +22,7 @@ app.controller('favoritesCtrl', function($scope, userService, homeService){
         $scope.currentFavorites = favoritesArray;
     }
     $scope.bookObject = {};
-    // $scope.searchForBook = function(title, author) {
-
-    //     // console.log('in controller', title, author);
-    //     homeService.searchForBook(title, author).then(function(data) {
-    //         // console.log(data)
-
-    //         homeService.buildObject($scope.bookObject, data);
-
-    //         $scope.bookObject.readStatus = 'dCIEURWA';
-    //         $scope.postBook($scope.bookObject);
-    //         $scope.getAll();
-
-    //         // console.log('in Search', $scope.currentFaves)
-    //         // $scope.currentFaves.push(bookObject); 
-
-    //     })
-    // }
+    
     $scope.searchForBook = function(title, author) {
 
         // console.log('in controller', title, author);

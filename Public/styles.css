@@ -24,30 +24,7 @@
 
   }
 
-  /*.container {
-    display: flex;  or inline-flex 
-    flex-direction:row;
-  }*/
-
-  /*.bookImage {
-    background-image-repeat: x-axis;
-  }*/
-  /*.bookshelf {
-  	background-image: url('http://i.istockimg.com/file_thumbview_approve/55820784/3/stock-photo-55820784-blank-old-book.jpg');
-  	background-repeat: repeat-x; 
-  	background-position: left top; 
-  	padding-top:68px; 
-  	margin-bottom:50px;
-    border-image-outset: 50px;
-  }*/
-
-  /*.library {
-   background-image: url('http://images.freeimages.com/images/previews/ec2/library-1441756.jpg');
-  background-size: cover;
-  height: 700px;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  }*/
+  
 
   ul {
       list-style-type: none;
@@ -159,49 +136,4 @@
   background-color: #897F80;
 }
 
-  /*.ghost-button-rounded-corners {
-    display: inline-block;
-    width: 100px;
-    padding: 8px;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    text-align: right;
-    outline: none;
-    text-decoration: none;
-  }
-  .ghost-button-rounded-corners:hover,
-  .ghost-button-rounded-corners:active {
-    background-color: #fff;
-    color: #000;
-  }
-
-  .ghost-button-semi-transparent {
-    display: inline-block;
-    width: 200px;
-    padding: 8px;
-    color: #fff;
-    border: 2px solid #fff;
-    text-align: right;
-    outline: none;
-    text-decoration: none;
-    transition: background-color 0.2s ease-out,
-                border-color 0.2s ease-out;
-  }
-  .ghost-button-semi-transparent:hover,
-  .ghost-button-semi-transparent:active {
-    background-color: #fff; /* fallback */
-    /*background-color: rgba(255, 255, 255, 0.4);
-    border-color: #fff; /* fallback */
-    /*border-color: rgba(255, 255, 255, 0.4);
-    transition: background-color 0.3s ease-in,
-                border-color 0.3s ease-in;
-  }*/
-
-  /*.shoppingCart {
-    text-align:left;
-    padding-left:  20px;
-  }
-*/
-
-
+  

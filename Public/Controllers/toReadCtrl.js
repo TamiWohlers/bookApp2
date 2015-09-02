@@ -35,9 +35,7 @@ app.controller('toReadCtrl', function($scope, toReadService, homeService) {
         homeService.getAll().then(function(data) {
             // console.log(data);
             $scope.getCurrent(data);
-            // $scope.currentFaves = data;
-            // console.log('in getAll on home.Ctrl', data);
-            // i = data.length;
+            
         })
     }
 

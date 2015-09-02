@@ -19,7 +19,7 @@ app.controller('cartCtrl', function($scope, cartService, toReadService, homeServ
         console.log("first line in deleteFromCart", book)
         cartService.deleteBook(book).then(function(result) {
                 $scope.booksInCart = result;
-                console.log('$$$$$$', $scope.booksInCart)
+                // console.log('$$$$$$', $scope.booksInCart)
                 $scope.total = 0;
                 for (var i = 0; i < $scope.booksInCart.length; i++) {
                     $scope.total = Math.round(($scope.total + $scope.booksInCart[i].Price) * 100) / 100;
