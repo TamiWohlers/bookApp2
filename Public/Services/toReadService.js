@@ -10,6 +10,7 @@ app.service('toReadService', function($http, $q) {
         cart.Product = "Book";
         cart.Title = book.title;
         cart.Price = book.price;
+        cart.image = book.image;
         console.log('cart', cart);
         // dfd.resolve(cart)
         // return dfd.promise;  
