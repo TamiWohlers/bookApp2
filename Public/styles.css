@@ -7,7 +7,7 @@
   }
 
   body{
-    background-image: url('http://images.freeimages.com/images/thumbs/c87/decorative-paper-1193741.jpg');
+    background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSLF9uR9bTBkNRrcETZUde8GAcRxBd2P9gTMZXIltwyFuNznvLd');
     font-size: 22px;
   
 
@@ -48,6 +48,7 @@
       padding: 20px;
       text-decoration: none;
       text-transform: uppercase;
+      transition: background-color .7s ease-in-out;
   }
 
   a:hover, a:active {
