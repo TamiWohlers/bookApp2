@@ -10,6 +10,8 @@ app.controller('toReadCtrl', function($scope, toReadService, homeService) {
         // console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
             console.log(data);
+            $scope.title  = "";
+            $scope.author = "";
             $scope.bookObject = {};
 
             homeService.buildObject($scope.bookObject, data);

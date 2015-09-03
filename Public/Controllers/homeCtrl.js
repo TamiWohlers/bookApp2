@@ -40,7 +40,8 @@ app.controller('homeCtrl', function($scope, homeService, haveReadService, $modal
 
          console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
-
+            $scope.title  = "";
+            $scope.author = "";
             // console.log("raw data", data)
 
             homeService.buildObject($scope.bookObject, data);

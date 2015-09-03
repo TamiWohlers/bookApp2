@@ -27,6 +27,8 @@ app.controller('favoritesCtrl', function($scope, userService, homeService){
 
         // console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
+            $scope.title  = "";
+            $scope.author = "";
             // console.log(data)
 
             homeService.buildObject($scope.bookObject, data);

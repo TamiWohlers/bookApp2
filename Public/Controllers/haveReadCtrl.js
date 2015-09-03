@@ -27,6 +27,8 @@ app.controller('haveReadCtrl', function($scope, haveReadService, homeService) {
         // console.log('in controller', title, author);
         homeService.searchForBook(title, author).then(function(data) {
             // console.log(data)
+            $scope.title  = "";
+            $scope.author = "";
 
             homeService.buildObject($scope.bookObject, data);
 
@@ -35,7 +37,7 @@ app.controller('haveReadCtrl', function($scope, haveReadService, homeService) {
             
             
             // console.log('in Search', $scope.currentFaves)
-            $scope.currentFaves.push(bookObject); 
+            $scope.haveReadArray.push(bookObject); 
             $scope.getAll();
         })
     }
