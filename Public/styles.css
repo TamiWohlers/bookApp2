@@ -19,6 +19,16 @@
     background-color: #A296B4;
   }
 
+  .bookshelf {
+    background-image: url("http://i.istockimg.com/file_thumbview_approve/6822237/5/stock-photo-6822237-vintage-books.jpg");
+    background-repeat: repeat-x;
+    height: 90px;
+
+}
+ /*background-image:url("http://i.istockimg.com/file_thumbview_approve/6822237/5/stock-photo-6822237-vintage-books.jpg");
+ background-repeat: repeat-x;
+}*/
+
   input {
       -webkit-appearance: none;
 
@@ -48,7 +58,7 @@
       padding: 20px;
       text-decoration: none;
       text-transform: uppercase;
-      transition: background-color .7s ease-in-out;
+      transition: background-color 1s ease-in-out;
   }
 
   a:hover, a:active {
@@ -115,26 +125,28 @@
     font-size: 20px;
   }
 
-  .ghost-button {
-    display: inline-block;
-    height:10px;
-    width: 10px;
-    /*padding: 8px;*/
-    color: black;
-    border: 1px solid #fff;
-    text-align: center;
-    outline: none;
-    text-decoration: none;
-  }
+    /*.ghost-button {
+      display: inline-block;
+      height:10px;
+      width: 10px;
+      /*padding: 8px;*/
+      color: black;
+      border: 1px solid #fff;
+      text-align: center;
+      outline: none;
+      text-decoration: none;
+    }
 
-  .ghost-button:hover,
-  .ghost-button:active {
-    background-color: #897F80;
-    color: #000;
-  }
+    .ghost-button:hover,
+    .ghost-button:active {
+      background-color: #897F80;
+      color: #000;
+    }*/
 
 .button {
   background-color: #897F80;
 }
+
+
 
   
