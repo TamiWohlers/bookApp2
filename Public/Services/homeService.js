@@ -96,7 +96,7 @@ app.service('homeService', function($http, $q) {
         if(data.items[0].saleInfo.saleability === "FREE") {
             bookObject.price = 0;
         }
-        else if (data.items[0].saleInfo.isEbook.listPrice.amount > 0) {
+        else if (data.items[0].saleInfo.isEbook === true) {
             console.log('inside if', bookObject.isEbook);
             bookObject.price =  data.items[0].saleInfo.listPrice.amount;
             console.log(bookObject.price);       
